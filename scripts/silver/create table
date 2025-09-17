@@ -8,17 +8,20 @@ cst_gndr NVARCHAR(50),
 cst_create_date DATE,
 dwh_create_date datetime2 default getdate()
 )
-
+if OBJECT_ID('silver_crm_prd_info','U') IS NOT NULL
+DROP TABLE silver.crm_prd_info
 create table silver.crm_prd_info(
 prd_id INT,
+cat_id NVARCHAR(50),
 prd_key NVARCHAR(50),
 prd_nm NVARCHAR(50),
 prd_cost INT,
 prd_line NVARCHAR(50),
-prd_star_dt DATETIME,
-prd_end_dt DATETIME,
+prd_star_dt DATE,
+prd_end_dt DATE,
 dwh_create_date datetime2 default getdate()
 )
+
 
 create table silver.crm_sales_details(
 sls_ord_num NVARCHAR(50),
